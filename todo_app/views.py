@@ -11,14 +11,14 @@ def DeleteTodo(request, pk):
 
 class TodoUpdate(UpdateView):
     model = Todo
-    fields = ['todo', 'description', 'important']
+    fields = ['todo', 'description', 'important', 'complete']
 
     template_name = 'todo_app/todo_update_form.html'
 
 
 class TodoCreate(LoginRequiredMixin, CreateView):
     model = Todo
-    fields = ['todo', 'description', 'important']
+    fields = ['todo', 'description', 'important', 'complete']
 
 
 def Todos(request):
