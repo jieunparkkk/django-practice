@@ -30,3 +30,7 @@ def Todos(request):
         {'todos':todos},
         
         )
+
+def index(request):
+    todos = Todo.objects.all()
+    return render(request, 'todo_app/index.html', {'todos':todos})

@@ -1,16 +1,17 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Todo</title>
+	<meta charset="UTF-8">
+	<title>Todos</title>
 </head>
 <body>
-    <h1>Todos</h1>
-    {% for t in todos %}
-        <hr>
-        <h3>{{t.id}}. {{t.todo}} => {{t.description}}</h3>
-    {% endfor %}
+	<h1>Todos</h1>
+	{% for todo in todos %}
+	<hr/>
+	<h3> {{ todo.todo }}</h3>
+	<p>{{ todo.description }}</p>
+	<p>important : {{ todo.important }}</p>
+	<p>complete : {{ todo.complete }}</p>
+	{% endfor %}
 </body>
 </html>
