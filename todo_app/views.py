@@ -8,17 +8,22 @@ def DeleteTodo(request, pk):
     delete_todo.delete()
     return redirect('/todo/')
 
+def CompletedTodo(request, pk):
+    todo = get_object_or_404(Todo, pk=pk)
+    todo.complete = True
+    todo.save()
+    return redirect('/todo/')
 
 class TodoUpdate(UpdateView):
     model = Todo
-    fields = ['todo', 'description', 'important', 'complete']
+    fields = ['todo', 'description', 'important']
 
-    template_name = 'todo_app/todo_update_form.html'
+    template_name = 'todo_app/todo_update_form.html' # 이건 왜 한거지?
 
 
 class TodoCreate(LoginRequiredMixin, CreateView):
     model = Todo
-    fields = ['todo', 'description', 'important', 'complete']
+    fields = ['todo', 'description', 'important']
 
 
 def Todos(request):
